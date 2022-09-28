@@ -21,6 +21,10 @@
     overflow: hidden;
   }
 
+  .accordion__content.show {
+    display: block;
+  }
+
 /*------------------
 ***Media Queries***
 ------------------*/

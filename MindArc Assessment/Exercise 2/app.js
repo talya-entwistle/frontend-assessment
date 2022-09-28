@@ -1,18 +1,70 @@
-const accordion = document.getElementsByClassName("accordion__button");
+//accordion js
 
-for (var i = 0; i < accordion.length; i++) {
-    accordion[i].addEventListener("click", function() {
-        this.classList.toggle("active");
 
+var accordion = document.getElementsByClassName('accordion__button');
+
+//for each index of accordion__button
+for(var i = 0; i < accordion.length; i++) {
+    accordion[i].addEventListener("click", function() { 
+
+        // if the accordion contents are not visble, display them
+        // otherwise, remove the contents from view
         var accordionContent = this.nextElementSibling;
         
         if (accordionContent.style.display === "block") {
             accordionContent.style.display = "none";
+        
         } else {
             accordionContent.style.display = "block";
+            
+            //if the contents of one accordion__button is already open when another accordion__button is clicked
+            //close the previously opened content
+            for(var k = 0; k < accordion.length; k++){
+                if(this.classList != accordion[k].classList) {
+                    accordion[k].classList.remove("active");
+                    accordion[k].nextElementSibling.style.display = "none";  
+                }
+            }
         }
-    });  
+    });
 }
+
+
+// for each index of accordion__button
+// for (var i = 0; i < accordion.length; i++) {
+//     accordion[i].addEventListener("click", function() {
+
+//         this.classList.toggle("active");
+//         this.nextElementSibling.classList.toggle("show");
+        
+//         //toggle the 'active' class on or off
+//         this.classList.toggle("active");
+
+//         // if the 'active' class is toggled, view the contents of that index
+//         // otherwise, if the 'active' class is already toggled when clicked, hide the contents
+//         var accordionContent = this.nextElementSibling;
+
+//         for(var k = 0; k < accordionContent.length; k++) {
+//             if(this.nextElementSibling != accordionContent[k]) {
+//                 accordionContent[k].classList.toggle("show");
+//             }
+
+//             this.nextElementSibling.classList.toggle("show");
+//         }
+        
+//         if (accordionContent.style.display === "block") {
+//             accordionContent.style.display = "none";
+//         } else {
+//             accordionContent.style.display = "block";
+//         }
+//     });  
+// }
+
+//show contents of the first accordion index by default
+document.getElementById("openByDefault").click();
+
+
+
 
 const tabs = Vue.createApp({
     data() {
