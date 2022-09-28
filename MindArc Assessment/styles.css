@@ -11,22 +11,25 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 650px;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .banner__image {
-    
+    background-image: url("images/600x600.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+	object-fit: cover;
+    width: 100%;
+    height: 600px;
 }
 
 .banner-text__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
 }
 
 .banner-text__heading, .banner-text__paragraph {
@@ -35,12 +38,92 @@ html, body {
 }
 
 .banner-text__heading {
-    font-size: 60px;
+    font-size: 50px;
     margin: 0px;
 }
 
 .banner-text__paragraph {
     font-weight: normal;
-    font-size: 26px;
+    font-size: 22px;
     margin: 10px 0px;
+}
+
+/*------------------
+******Card CSS******
+------------------*/
+
+.cards__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px auto;
+    place-self: center;
+}
+
+.cards {
+    max-width: 300px;
+    border: 2px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	align-items: center;
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+.cards__image-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+}
+
+.cards__image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.cards__text {
+    text-align: center;
+    padding: 10px;
+}
+
+.cards__button {
+    padding: 10px 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 3px solid #000000;
+    border-radius: 30px;
+    background-color: #ffffff;
+    justify-content: flex-end;
+}
+
+.cardsbutton:hover {
+    cursor: pointer;
+}
+
+/*------------------
+***Media Queries***
+------------------*/
+
+@media (min-width: 600px) {
+    .banner__image {
+        background-image: url("images/1920x650.png");
+        width: 100%;
+        height: 650px;
+    }
+
+    .banner-text__heading {
+        font-size: 60px;
+    }
+    
+    .banner-text__paragraph {
+        font-size: 26px;
+    }
+    
+    .cards {
+        justify-content: space-between;
+    }
 }
