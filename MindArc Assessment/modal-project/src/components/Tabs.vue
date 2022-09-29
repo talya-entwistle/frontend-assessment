@@ -1,53 +1,25 @@
 <template>
     <section class="tab__container">
     <div class="tab__background">
-        <button class="tab__links" onclick="openTab(evt, '1')">1</button>
-        <button class="tab__links" onclick="openTab(evt, '2')">2</button>
-        <button class="tab__links" onclick="openTab(evt, '3')">3</button>
+        <button v-for="data in data" :key="data.title" class="tab__links">{{ data.title }}</button>
       </div>
-      
-      <!-- Tab content -->
       <div id="1" class="tab__content">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
-      </div>
-      
-      <div id="2" class="tab__content">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
-      </div>
-      
-      <div id="3" class="tab__content">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
+        <p>{{ data.content }}</p>
       </div>
     </section>
 </template>
 
 <script>
+import data from '../assets/data.json'
 
-function openTab(evt, tabNumber) {
-    // Declare all variables
-    var tabContent
-    var tabLinks;
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabContent = document.getElementsByClassName("tab__content");
-    for (var i = 0; i < tabContent.length; i++) {
-      tabContent[i].style.display = "none";
+export default {
+  props: ['title', 'content'],
+  data() {
+    return {
+      data: data
     }
-  
-    // Get all elements with class="tab__links" and remove the class "active"
-    tabLinks = document.getElementsByClassName("tab__links");
-    for (i = 0; i < tabLinks.length; i++) {
-      tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabNumber).style.display = "block";
-    evt.currentTarget.className += " active";
-    
   }
+}
 </script>
 
 <style>

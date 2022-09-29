@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Accordion title="Section 1" content="Testing" />
+    <Accordion/>
     <Tabs/>
   </div>
 </template>
@@ -12,11 +12,6 @@ import Tabs from './components/Tabs'
 export default {
   name: 'App',
   components: { Accordion, Tabs },
-  data() {
-    return {
-      title: 'test'
-    }
-  }
 }
 </script>
 
