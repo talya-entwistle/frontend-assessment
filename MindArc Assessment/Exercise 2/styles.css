@@ -34,39 +34,43 @@
 ------------------*/
 
 .tab__container {
-    display: none;
+  display: none;
 }
 
-.tab__button-background {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-  }
-  
-  .tab__button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-  }
-  
-  .tab__button:hover {
-    background-color: #ddd;
-  }
-  
-  .tab__button.active {
-    background-color: #ccc;
-  }
+.tab__background {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
 
-  .tab__content {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-  }
+/* Style the buttons that are used to open the tab content */
+.tab__background .tab__links {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab__background .tab__links:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab__background .tab__links.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tab__content {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
 
 /*------------------
 ***Media Queries***

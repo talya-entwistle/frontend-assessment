@@ -1,5 +1,3 @@
-import data from "data/data.json";
-
 //accordion js
 var accordion = document.getElementsByClassName("accordion__button");
 
@@ -34,40 +32,31 @@ document.getElementById("openByDefault").click();
 
 
 //tab js
+var tabs = document.getElementsByClassName("tab__links");
 
-// function openCity(evt, cityName) {
-//     // Declare all variables
-//     var i, tabcontent, tablinks;
+function openTab(evt, tabNumber) {
+    // Declare all variables
+    var tabContent
+    var tabLinks;
   
-//     // Get all elements with class="tabcontent" and hide them
-//     tabcontent = document.getElementsByClassName("tab__content");
-//     for (i = 0; i < tabcontent.length; i++) {
-//       tabcontent[i].style.display = "none";
-//     }
-  
-//     // Get all elements with class="tablinks" and remove the class "active"
-//     tablinks = document.getElementsByClassName("tab__links");
-//     for (i = 0; i < tablinks.length; i++) {
-//       tablinks[i].className = tablinks[i].className.replace(" active", "");
-//     }
-  
-//     // Show the current tab, and add an "active" class to the button that opened the tab
-//     document.getElementById(cityName).style.display = "block";
-//     evt.currentTarget.className += " active";
-//   }
-
-
-const data = Vue.createApp({
-    data() {
-        return {
-            data: []
-        }
-    },
-    mounted() {
-        fetch('data/data.json')
-        .then(response => response.json())
-        .then(data => this.data = data)
+    // Get all elements with class="tabcontent" and hide them
+    tabContent = document.getElementsByClassName("tab__content");
+    for (var i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
     }
-})
+  
+    // Get all elements with class="tab__links" and remove the class "active"
+    tabLinks = document.getElementsByClassName("tab__links");
+    for (i = 0; i < tabLinks.length; i++) {
+      tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabNumber).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 
-// tabs.mount('.tabs__test')
+  tabs.addEventListener("click", function() {
+    openTab();
+  })
+
