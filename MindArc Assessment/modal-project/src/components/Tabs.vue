@@ -1,12 +1,17 @@
 <template>
-    <section class="tab__container">
-    <div class="tab__background">
-        <button v-for="data in data" :key="data.title" class="tab__links">{{ data.title }}</button>
-      </div>
-      <div id="1" class="tab__content">
-        <p>{{ data.content }}</p>
-      </div>
-    </section>
+<section class="tab__container">
+  <div class="wrapper">
+    <div class="buttonWrapper">
+      <button class="tab-button active" style="border-top-left-radius: 10px;" data-id="home" v-for="data in data" :key="data.title">{{ data.title }}</button>
+    </div>
+    <div class="contentWrapper">
+      <p class="content active" id="1">{{ data.content }}</p>
+      <p class="content active" id="2">{{ data.content }}</p>
+      <p class="content active" id="3">{{ data.content }}</p>
+      <p class="content active" id="4">{{ data.content }}</p>
+    </div>
+  </div>
+</section>
 </template>
 
 <script>
@@ -23,39 +28,55 @@ export default {
 </script>
 
 <style>
-.tab__container {
-  display: none;
+.wrapper {
+  display: inline-block;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
 }
 
-.tab__background {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
 }
 
-.tab__background .tab__links {
-  background-color: inherit;
-  float: left;
+button {
+  letter-spacing: 3px;
   border: none;
-  outline: none;
+  padding: 10px;
+  background-color: #bccbe9;
+  color: #232c3d;
+  font-size: 18px;
   cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
-.tab__background .tab__links:hover {
-  background-color: #ddd;
+button:hover {
+  background-color: #d5e3ff;
 }
 
-.tab__background .tab__links.active {
-  background-color: #ccc;
+button.active {
+  background-color: white;
 }
 
-.tab__content {
+.active {
+  background-color: white;
+}
+
+p {
+  text-align: left;
+  padding: 10px;
+  color: #000009;
+}
+
+.content {
   display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  padding: 10px 20px;
+}
+
+.content.active {
+  display: block;
 }
 
 @media (min-width: 769px) {
