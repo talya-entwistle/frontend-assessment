@@ -1,3 +1,7 @@
+/*------------------
+****Accordion CSS***
+------------------*/
+
 .accordion__button {
     background-color: #eee;
     color: #444;
@@ -26,11 +30,54 @@
   }
 
 /*------------------
+*******Tab CSS******
+------------------*/
+
+.tab__container {
+    display: none;
+}
+
+.tab__button-background {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  .tab__button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  .tab__button:hover {
+    background-color: #ddd;
+  }
+  
+  .tab__button.active {
+    background-color: #ccc;
+  }
+
+  .tab__content {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+/*------------------
 ***Media Queries***
 ------------------*/
 
 @media (min-width: 769px) {
     .accordion__container {
         display: none;
+    }
+
+    .tab__container {
+        display: block;
     }
 }
