@@ -1,40 +1,9 @@
-Introduction
----
-Thanks for taking the time to complete this frontend technical assessment. We will be focusing on software quality (scalability, readability, maintainability, etc.) and your eye for detail. You may include any libraries, but Vue.js is preferred and jQuery is not recommended. Along with following best practices, bonus points for following our [coding guidelines](https://github.com/mindarc/frontend-assessment/wiki/Coding-guidelines). 
+Here's my completed exercises! Just in case there's an issues with the files I've uploaded exercise 1 to my own repo here:
 
-Exercise 1
----
-Build a responsive page based on the designs.
+Exercise 1: https://talya-entwistle.github.io/MindArc-Exercise-1/
 
-##### Requirements
-1. Match the designs exactly.
-2. Needs to be responsive.
+Unfortunately GitHub didn't like how many files were a part of exercise 2 so I couldn't upload that one. Hopefully there's no issues viewing it from here but if there is please let me know.
 
-##### Designs
-* exercise1-desktop.png
-* exercise1-mobile.png
+I should note here that this is my first time using Vue.js so a few things may not be working in the most optimal way possible as I was just trying to get the hang of it. Notably the fact that I have JavaScript in the Main.js file (or that I'm using JavaScript at all). But I wanted to at least give it a go! 
 
-##### Assets
-* Desktop banner - https://via.placeholder.com/1920x650
-* Mobile banner - https://via.placeholder.com/600x600
-* Content images - https://via.placeholder.com/400x300
-
-Exercise 2
----
-Read the `data.json` file and display the data as tabs on desktop and an accordion on mobile.
-
-##### Requirements
-1. Display data in tabs on desktop.
-2. Display data in an accordion on mobile.
-3. Only 1 accordion/tab should be open at a time.
-4. Open the first accordion/tab on load.
-5. If the open accordion is selected, close it.
-
-###### Bonus points
-* Improve the user experience with meaningful animations/transitions.
-* Design and styling.
-* Explain why the result of `('b' + 'a' + + 'a' + 'a').toLowerCase()` is `banana`.
-
-Submission
----
-We recommend submitting your completed assessment as a forked repository. Please replace README content with instructions and relevant documentation.
+Any feedback is welcome :-)
