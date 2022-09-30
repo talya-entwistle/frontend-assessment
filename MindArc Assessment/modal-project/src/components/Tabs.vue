@@ -1,12 +1,15 @@
 <template>
     <section class="tab__container">
         <div class="tab__sidebar">
-            <button class="tab__button" v-for="data in data" :key="data.title">{{ data.title }}</button>
+            <button class="tab__button"
+                v-for="(data, index) in data"
+                :key="data.title"
+                @click="activeTabIndex = index">{{ data.title }}</button>
         </div>
-        <div class="tab__content" v-for="data in data" :key="data.content">
-                <p v-html="data.content"></p>
-            </div>
-    </section>
+        <div class="tab__content">
+            <p v-html="activeContent"></p>
+        </div>
+      </section>
 </template>
 
 <script>
@@ -16,8 +19,15 @@ export default {
   props: ['title', 'content'],
   data() {
     return {
-      data: data
+      data,
+      activeTabIndex: 0,
     }
+  },
+  computed: {
+    activeContent() {
+      return this.data[this.activeTabIndex]?.content;
+    }
+  
   }
 }
 </script>

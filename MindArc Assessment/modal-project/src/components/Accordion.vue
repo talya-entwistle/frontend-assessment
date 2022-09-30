@@ -1,6 +1,6 @@
 <template>
     <div class="accordion__container" v-for="data in data" :key="data.title">
-      <button class="accordion__button" id="openByDefault">{{ data.title }}</button>
+      <button class="accordion__button" id="openAccordionByDefault">{{ data.title }}</button>
       <div class="accordion__content">
           <p v-html="data.content"></p>
       </div>

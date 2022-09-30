@@ -33,7 +33,7 @@ for(var i = 0; i < accordion.length; i++) {
 }
 
 //show contents of the first accordion index by default
-document.getElementById("openByDefault").click();
+document.getElementById("openAccordionByDefault").click();
 
 
 
@@ -60,3 +60,6 @@ document.querySelectorAll(".tab__button").forEach(button => {
         tabToActivate.classList.add("is__active");
     });
 });
+
+//show contents of the first tab index by default
+document.getElementById("openTabByDefault").click();
