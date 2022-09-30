@@ -1,17 +1,12 @@
 <template>
-<section class="tab__container">
-  <div class="wrapper">
-    <div class="buttonWrapper">
-      <button class="tab-button active" style="border-top-left-radius: 10px;" data-id="home" v-for="data in data" :key="data.title">{{ data.title }}</button>
-    </div>
-    <div class="contentWrapper">
-      <p class="content active" id="1">{{ data.content }}</p>
-      <p class="content active" id="2">{{ data.content }}</p>
-      <p class="content active" id="3">{{ data.content }}</p>
-      <p class="content active" id="4">{{ data.content }}</p>
-    </div>
-  </div>
-</section>
+    <section class="tab__container">
+        <div class="tab__sidebar">
+            <button class="tab__button" v-for="data in data" :key="data.title">{{ data.title }}</button>
+        </div>
+        <div class="tab__content" v-for="data in data" :key="data.content">
+                <p v-html="data.content"></p>
+            </div>
+    </section>
 </template>
 
 <script>
@@ -28,59 +23,55 @@ export default {
 </script>
 
 <style>
-.wrapper {
-  display: inline-block;
-  margin: auto;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
-}
 
-.buttonWrapper {
-  display: flex;
-  justify-content: center;
-}
-
-button {
-  letter-spacing: 3px;
-  border: none;
-  padding: 10px;
-  background-color: #bccbe9;
-  color: #232c3d;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-button:hover {
-  background-color: #d5e3ff;
-}
-
-button.active {
-  background-color: white;
-}
-
-.active {
-  background-color: white;
-}
-
-p {
-  text-align: left;
-  padding: 10px;
-  color: #000009;
-}
-
-.content {
-  display: none;
-  padding: 10px 20px;
-}
-
-.content.active {
-  display: block;
+.tab__container {
+    display: none;
 }
 
 @media (min-width: 769px) {
     .tab__container {
+        display: flex;
+        border: 1px solid #d2d2d2;
+    }
+
+    .tab__sidebar {
+        flex-direction: row;
+        width: 125px;
+        flex-shrink: 0;
+        background: #cccccc;
+    }
+
+    .tab__button {
+        display: block;
+        padding: 10px;
+        background: #eeeeee;
+        border: none;
+        width: 100%;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .tab__button:active {
+        background: #dddddd;
+    }
+
+    .tab__button:not(:last-of-type) {
+        border-bottom: 1px solid #cccccc;
+    }
+
+    .tab__button.is__active {
+        font-weight: bold;
+        border-right: 2px solid #009879;
+        background: #dddddd;
+    }
+
+    .tab__content {
+        padding: 20px;
+        font-size: 18px;
+        display: none;
+    }
+
+    .tab__content.is__active {
         display: block;
     }
 }

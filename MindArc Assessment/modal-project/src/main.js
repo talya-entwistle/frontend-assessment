@@ -35,23 +35,28 @@ for(var i = 0; i < accordion.length; i++) {
 //show contents of the first accordion index by default
 document.getElementById("openByDefault").click();
 
+
+
 //tab js
-const tabs = document.querySelector(".wrapper");
-const tabButton = document.querySelectorAll(".tab-button");
-const contents = document.querySelectorAll(".content");
+document.querySelectorAll(".tab__button").forEach(button => {
+    button.addEventListener("click", () => {
+        var sidebar = button.parentElement;
+        var tabContainer = sidebar.parentElement;
+        var tabToActivate = tabContainer.querySelector(".tab__content");
 
-tabs.onclick = e => {
-  const id = e.target.dataset.id;
-  if (id) {
-    tabButton.forEach(btn => {
-      btn.classList.remove("active");
-    });
-    e.target.classList.add("active");
+        console.log(sidebar);
+        console.log(tabContainer);
+        console.log(tabToActivate);
+        
+        sidebar.querySelectorAll(".tab__button").forEach(button => {
+            button.classList.remove("is__active");
+        });
 
-    contents.forEach(content => {
-      content.classList.remove("active");
+        tabContainer.querySelectorAll(".tab__content").forEach(tab => {
+            tab.classList.remove("is__active");
+        });
+
+        button.classList.add("is__active");
+        tabToActivate.classList.add("is__active");
     });
-    const element = document.getElementById(id);
-    element.classList.add("active");
-   }
-}
+});

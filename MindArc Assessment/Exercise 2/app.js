@@ -32,31 +32,38 @@ document.getElementById("openByDefault").click();
 
 
 //tab js
-var tabs = document.getElementsByClassName("tab__links");
+let tab = document.querySelectorAll('.info-header-tab'),
+			info = document.querySelector('.info-header'),
+			tabContent = document.querySelectorAll('.info-tabcontent');
 
-function openTab(evt, tabNumber) {
-    // Declare all variables
-    var tabContent
-    var tabLinks;
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabContent = document.getElementsByClassName("tab__content");
-    for (var i = 0; i < tabContent.length; i++) {
-      tabContent[i].style.display = "none";
-    }
-  
-    // Get all elements with class="tab__links" and remove the class "active"
-    tabLinks = document.getElementsByClassName("tab__links");
-    for (i = 0; i < tabLinks.length; i++) {
-      tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabNumber).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+	function hideTabContent(a) {
+		for (let i = a; i < tabContent.length; i++) {
+			tabContent[i].classList.remove('show');
+			tabContent[i].classList.add('hide');
+		}
+	}
 
-  tabs.addEventListener("click", function() {
-    openTab();
-  })
+	hideTabContent(1);
+
+	function showTabContent(b) {
+		if (tabContent[b].classList.contains('hide')) {
+			tabContent[b].classList.remove('hide');
+			tabContent[b].classList.add('show');
+		}
+	}
+
+	info.addEventListener('click', function(event) {
+		let target = event.target;
+
+		if (target && target.classList.contains('info-header-tab')) {
+			for (let i = 0; i < tab.length; i++) {
+				if (target == tab[i]) {
+					hideTabContent(0);
+					showTabContent(i);
+					break;
+				}
+			} 
+		} 
+	});
+
 

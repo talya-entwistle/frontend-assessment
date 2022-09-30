@@ -14,7 +14,7 @@ export default {
   props: ['title', 'content'],
   data() {
     return {
-      data: data
+      data: data,
     }
   }
 }
