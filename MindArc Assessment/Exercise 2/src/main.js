@@ -19,12 +19,11 @@ for(var i = 0; i < accordion.length; i++) {
         
         } else {
             accordionContent.style.display = "block";
-            
+                        
             //if the contents of one accordion__button is already open when another accordion__button is clicked
             //close the previously opened content
             for(var k = 0; k < accordion.length; k++){
                 if(this.classList != accordion[k].classList) {
-                    accordion[k].classList.remove("active");
                     accordion[k].nextElementSibling.style.display = "none";  
                 }
             }
@@ -36,18 +35,16 @@ for(var i = 0; i < accordion.length; i++) {
 document.getElementById("openAccordionByDefault").click();
 
 
-
 //tab js
+
+//places a click event listener on each element with the 'tab__button' class
 document.querySelectorAll(".tab__button").forEach(button => {
     button.addEventListener("click", () => {
         var sidebar = button.parentElement;
         var tabContainer = sidebar.parentElement;
         var tabToActivate = tabContainer.querySelector(".tab__content");
 
-        console.log(sidebar);
-        console.log(tabContainer);
-        console.log(tabToActivate);
-        
+        //if a tab is open and another tab is selected, close the currently open tab and open the selected one
         sidebar.querySelectorAll(".tab__button").forEach(button => {
             button.classList.remove("is__active");
         });

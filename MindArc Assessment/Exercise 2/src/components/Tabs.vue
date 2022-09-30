@@ -4,10 +4,12 @@
             <button class="tab__button"
                 v-for="(data, index) in data"
                 :key="data.title"
-                @click="activeTabIndex = index">{{ data.title }}</button>
+                @click="activeTabIndex = index" id="openTabByDefault">{{ data.title }}</button>
         </div>
-        <div class="tab__content">
-            <p v-html="activeContent"></p>
+        <div class="tab__content" v-for="(data, index) in data"
+        :key="data.content"
+        @click="activeTabIndex = index">
+            <p class="tab__text" v-html="activeContent"></p>
         </div>
       </section>
 </template>
@@ -27,7 +29,6 @@ export default {
     activeContent() {
       return this.data[this.activeTabIndex]?.content;
     }
-  
   }
 }
 </script>
@@ -41,48 +42,57 @@ export default {
 @media (min-width: 769px) {
     .tab__container {
         display: flex;
-        border: 1px solid #d2d2d2;
+        flex-direction: column;
+        border-radius: 10px;
+        max-width: 800px;
     }
 
     .tab__sidebar {
-        flex-direction: row;
-        width: 125px;
+        display: flex;
         flex-shrink: 0;
-        background: #cccccc;
     }
 
     .tab__button {
-        display: block;
+        display: flex;
+        justify-content: center;
         padding: 10px;
-        background: #eeeeee;
         border: none;
         width: 100%;
         outline: none;
         cursor: pointer;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;;
+        background-color: #b5c3ff;
+        color: #ffffff;
+        font-family: sans-serif;
+        font-size: 18px;
     }
-
-    .tab__button:active {
-        background: #dddddd;
-    }
-
-    .tab__button:not(:last-of-type) {
-        border-bottom: 1px solid #cccccc;
-    }
-
+    
     .tab__button.is__active {
         font-weight: bold;
-        border-right: 2px solid #009879;
-        background: #dddddd;
+        background-color: #879eff;
+        border-right: 4px solid #5d7cff;
     }
 
     .tab__content {
-        padding: 20px;
         font-size: 18px;
         display: none;
+        height: 300px;
+        color: #ffffff;
+        font-family: sans-serif;
     }
 
     .tab__content.is__active {
         display: block;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #879eff;
+    }
+
+
+    .tab__text {
+        padding: 40px 60px;  
+        margin: 0px;
     }
 }
 </style>

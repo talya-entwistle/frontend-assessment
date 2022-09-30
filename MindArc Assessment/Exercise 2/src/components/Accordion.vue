@@ -22,31 +22,37 @@ export default {
 </script>
 
 <style >
+
+.accordion__container {
+    max-width: 400px;
+}
+
 .accordion__button {
-    background-color: #eee;
-    color: #444;
+    background-color: #879eff;
+    color: #000000;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     text-align: left;
     border: none;
+    border-bottom: 4px solid #5d7cff;
     outline: none;
     transition: 0.4s;
-  }
-
-  .accordion_button:hover, .active {
-    background-color: #ccc;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: sans-serif;
+    width: 400px;
   }
 
   .accordion__content {
     padding: 0 18px;
-    background-color: white;
+    background-color: #b5c3ff;
     display: none;
     overflow: hidden;
-  }
-
-  .accordion__content.show {
-    display: block;
+    transition: 2s ease-in;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: sans-serif;
   }
 
   @media (min-width: 769px) {
