@@ -42,10 +42,11 @@ export default {
     font-size: 16px;
     font-family: sans-serif;
     width: 400px;
+    transition: ease 0.5s;
   }
 
   .accordion__content {
-    padding: 0 18px;
+    padding: 20px 30px;
     background-color: #b5c3ff;
     display: none;
     overflow: hidden;
