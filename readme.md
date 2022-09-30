@@ -12,6 +12,6 @@ Also, the answer to: "Explain why the result of ```('b' + 'a' + + 'a' + 'a').toL
 
 I admit I did a cheeky Google for this one but the answer was very interesting.
 
-The regular '+' signs add the letters together as normal, however the second '+' in "'a'+ + 'a'" is attempting to convert 'a' into a number. 'a' of course isn't a number so it returns 'NaN' (not a number) instead. Then the final character 'a' is added to spell baNaNa. I didn't actually realise it's the same logic behind 'value++' which is neat to know.
+The regular '+' signs add the letters together as normal, however the second '+' in "'a'+ + 'a'" is attempting to convert 'a' into a number. 'a' of course isn't a number so it returns 'NaN' (not a number) instead. Then the final character 'a' is added to spell baNaNa. I didn't realise it's actually the same logic behind 'value++' which is neat to know.
 
 
